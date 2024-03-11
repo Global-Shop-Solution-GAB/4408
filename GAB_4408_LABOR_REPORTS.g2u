@@ -1,0 +1,653 @@
+Program.Sub.ScreenSU.Start
+Gui.Form_Main..Create
+Gui.Form_Main..Caption("Selection Criteria")
+Gui.Form_Main..Size(5415,6855)
+Gui.Form_Main..MinX(0)
+Gui.Form_Main..MinY(0)
+Gui.Form_Main..Position(0,0)
+Gui.Form_Main..BackColor(-2147483633)
+Gui.Form_Main..MousePointer(0)
+Gui.Form_Main..Event(UnLoad,Form_UnLoad)
+Gui.Form_Main..MaxButton(False)
+Gui.Form_Main..MinButton(False)
+Gui.Form_Main..Sizeable(False)
+Gui.Form_Main.frSelect.Create(Frame)
+Gui.Form_Main.frSelect.Size(2160,1140)
+Gui.Form_Main.frSelect.Position(240,150)
+Gui.Form_Main.frSelect.Caption("Select By")
+Gui.Form_Main.optEmp.Create(Option)
+Gui.Form_Main.optEmp.Size(1575,360)
+Gui.Form_Main.optEmp.Position(165,645)
+Gui.Form_Main.optEmp.Parent("frSelect")
+Gui.Form_Main.optEmp.Caption("Employee")
+Gui.Form_Main.optEmp.Event(Click,optEmp_Click)
+Gui.Form_Main.optGrp.Create(Option)
+Gui.Form_Main.optGrp.Size(1845,360)
+Gui.Form_Main.optGrp.Position(165,240)
+Gui.Form_Main.optGrp.Parent("frSelect")
+Gui.Form_Main.optGrp.Caption("Balancing Group")
+Gui.Form_Main.optGrp.Event(Click,optGrp_Click)
+Gui.Form_Main.frRange.Create(Frame)
+Gui.Form_Main.frRange.Size(4695,1050)
+Gui.Form_Main.frRange.Position(240,2265)
+Gui.Form_Main.frRange.Caption("Select Range")
+Gui.Form_Main.txtEmpStart.Create(TextBox,"",True,1830,300,0,60,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtEmpStart.Parent("frRange")
+Gui.Form_Main.cmdSelStart.Create(Button)
+Gui.Form_Main.cmdSelStart.Size(405,330)
+Gui.Form_Main.cmdSelStart.Position(1890,630)
+Gui.Form_Main.cmdSelStart.Parent("frRange")
+Gui.Form_Main.cmdSelStart.Caption("^")
+Gui.Form_Main.cmdSelStart.Event(Click,cmdSelStart_Click)
+Gui.Form_Main.lblStart.Create(Label,"Start of Range",True,1785,255,0,195,315,True,0,"Arial",8,-986896,0)
+Gui.Form_Main.lblStart.Parent("frRange")
+Gui.Form_Main.txtEmpEnd.Create(TextBox,"",True,1830,300,0,2325,630,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtEmpEnd.Parent("frRange")
+Gui.Form_Main.cmdSelStop.Create(Button)
+Gui.Form_Main.cmdSelStop.Size(405,330)
+Gui.Form_Main.cmdSelStop.Position(4230,630)
+Gui.Form_Main.cmdSelStop.Parent("frRange")
+Gui.Form_Main.cmdSelStop.Caption("^")
+Gui.Form_Main.cmdSelStop.Event(Click,cmdSelStop_Click)
+Gui.Form_Main.lbl1.Create(Label,"End of Range",True,1935,255,0,2700,360,True,0,"Arial",8,-986896,0)
+Gui.Form_Main.lbl1.Parent("frRange")
+Gui.Form_Main.frPayType.Create(Frame)
+Gui.Form_Main.frPayType.Size(2385,1080)
+Gui.Form_Main.frPayType.Position(2505,240)
+Gui.Form_Main.frPayType.Caption("Pay Type")
+Gui.Form_Main.chkSalary.Create(CheckBox)
+Gui.Form_Main.chkSalary.Size(870,360)
+Gui.Form_Main.chkSalary.Position(225,375)
+Gui.Form_Main.chkSalary.Parent("frPayType")
+Gui.Form_Main.chkSalary.Caption("Salary")
+Gui.Form_Main.chkSalary.Event(Click,chkSalary_Click)
+Gui.Form_Main.chkHourly.Create(CheckBox)
+Gui.Form_Main.chkHourly.Size(915,360)
+Gui.Form_Main.chkHourly.Position(1170,375)
+Gui.Form_Main.chkHourly.Parent("frPayType")
+Gui.Form_Main.chkHourly.Caption("Hourly")
+Gui.Form_Main.chkHourly.Event(Click,chkHourly_Click)
+Gui.Form_Main.frOutput.Create(Frame)
+Gui.Form_Main.frOutput.Size(4680,795)
+Gui.Form_Main.frOutput.Position(240,1410)
+Gui.Form_Main.frOutput.Caption("Report Type")
+Gui.Form_Main.ddlOutput.Create(DropDownList)
+Gui.Form_Main.ddlOutput.Size(3360,330)
+Gui.Form_Main.ddlOutput.Position(435,300)
+Gui.Form_Main.ddlOutput.Parent("frOutput")
+Gui.Form_Main.ddlOutput.Event(Click,ddlOutput_Click)
+Gui.Form_Main.ddlOutput.Event(Change,ddlOutput_Change)
+Gui.Form_Main.frDates.Create(Frame)
+Gui.Form_Main.frDates.Size(4650,1080)
+Gui.Form_Main.frDates.Position(255,4410)
+Gui.Form_Main.frDates.Caption("Date Selection")
+Gui.Form_Main.dtpStart.Create(DatePicker)
+Gui.Form_Main.dtpStart.Size(1935,285)
+Gui.Form_Main.dtpStart.Position(135,600)
+Gui.Form_Main.dtpStart.Parent("frDates")
+Gui.Form_Main.dtpEndDate.Create(DatePicker)
+Gui.Form_Main.dtpEndDate.Size(1935,285)
+Gui.Form_Main.dtpEndDate.Position(2460,600)
+Gui.Form_Main.dtpEndDate.Parent("frDates")
+Gui.Form_Main.lblStartDate.Create(Label,"Start Date",True,930,255,0,165,375,True,0,"Arial",8,-986896,0)
+Gui.Form_Main.lblStartDate.Parent("frDates")
+Gui.Form_Main.lblEndDate.Create(Label,"End Date",True,930,255,0,2460,375,True,0,"Arial",8,-986896,0)
+Gui.Form_Main.lblEndDate.Parent("frDates")
+Gui.Form_Main.cmdOk.Create(Button)
+Gui.Form_Main.cmdOk.Size(855,375)
+Gui.Form_Main.cmdOk.Position(915,5745)
+Gui.Form_Main.cmdOk.Caption("OK")
+Gui.Form_Main.cmdOk.Event(Click,cmdOk_Click)
+Gui.Form_Main.cmdCancel.Create(Button)
+Gui.Form_Main.cmdCancel.Size(855,375)
+Gui.Form_Main.cmdCancel.Position(3075,5760)
+Gui.Form_Main.cmdCancel.Caption("Cancel")
+Gui.Form_Main.cmdCancel.Event(Click,cmdCancel_Click)
+Gui.Form_Main.frEarn.Create(Frame)
+Gui.Form_Main.frEarn.Size(4650,945)
+Gui.Form_Main.frEarn.Position(255,3390)
+Gui.Form_Main.frEarn.Caption("Select Earnings Code - BLANK = ALL")
+Gui.Form_Main.ddlEarnCode.Create(DropDownList)
+Gui.Form_Main.ddlEarnCode.Size(3525,330)
+Gui.Form_Main.ddlEarnCode.Position(360,360)
+Gui.Form_Main.ddlEarnCode.Parent("frEarn")
+Program.Sub.ScreenSU.End
+
+Variable.Global.sSelectType.Declare(String)
+Variable.Global.sPayType.Declare(String)
+Variable.Global.sStartRange.Declare(String)
+Variable.Global.sEndRange.Declare(String)
+Variable.Global.sEmpRange.Declare(String)
+Variable.Global.sSalary.Declare(String)
+Variable.Global.sHourly.Declare(String)
+Variable.Global.bSecurity.Declare(Boolean,True)
+Variable.Global.sDateRange.Declare(String)
+Variable.Global.sReportType.Declare(String)
+Variable.Global.sStartDate.Declare(String)
+Variable.Global.sEndDate.Declare(String)
+Variable.Global.sRPTID.Declare(String)
+Variable.Global.iRPTID.Declare(Long,0)
+Variable.Global.sEarnCode.Declare(String)
+Variable.Global.sUser.Declare(String)
+Program.Sub.Preflight.Start
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sUser.Declare(String)
+v.Local.sGroup.Declare(String)
+v.Local.bSecurity.Declare(Boolean)
+v.Local.sEmployee.Declare(String)
+v.Local.sSql.Declare(String)
+
+'report type
+GUI.Form_Main.ddlOutput.AddItem("DETAIL")
+GUI.Form_Main.ddlOutput.AddItem("SUMMARY")
+
+'getting pay types from company options
+v.Local.sSql.Set("select concat(concat(right(sequence,2),' - '),text1) AS TYPE from op_header where ID = '400889' AND TEXT1 > ''")
+f.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+f.ODBC.Connection!conx.OpenLocalRecordsetRO("pay",v.Local.sSql)
+f.Intrinsic.Control.If(v.ODBC.conx!pay.EOF,=,False)
+f.ODBC.conx!pay.MoveFirst
+	f.Intrinsic.Control.DoUntil(v.ODBC.conx!pay.EOF,=,True)
+		GUI.Form_Main.ddlEarnCode.AddItem(v.ODBC.conx!pay.FieldValTrim!TYPE)
+		F.ODBC.conx!pay.MoveNext
+		F.Intrinsic.Control.Loop
+F.Intrinsic.Control.EndIf
+F.ODBC.Connection!conx.Close
+
+
+
+'get the user ID and check against security groups. This determines what we show on the form.
+v.Local.sUser.Set(v.Caller.User)
+f.Global.Security.IsInGroup(v.Local.sUser,"JDETAIL",v.Caller.CompanyCode,v.Local.bSecurity)
+f.Intrinsic.Control.If(v.Local.bSecurity,=,False)
+	'the user is not a member of the JDETAIL security group
+	'make some changes to the form to hide certain features and set default values because the user doesn't have priveledge to use the whole form
+	gui.Form_Main.frPayType.Visible(False)
+	gui.Form_Main.frRange.Visible(false)
+	gui.Form_Main.frSelect.Visible(false)
+	'get employee number from USERID and set the start / end range for the query.
+	v.Global.bSecurity.Set(False)
+	V.Global.sSelectType.Set("EMP")
+	F.Global.Security.GetEmpNoFromUser(v.Caller.User,v.Local.sEmployee)
+	v.Global.sStartRange.Set(v.Local.sEmployee)
+	v.Global.sEndRange.Set(V.Local.sEmployee)
+	'setting the paytype criteria because we'll only be selecting one employee in the range
+	v.Global.sPayType.Set("IN ('H','S')")
+'f.Intrinsic.Control.Else
+'	GUI.Form_Main.ddlOutput.AddItem("DETAIL W/COST")
+'	GUI.Form_Main.ddlOutput.AddItem("SUMMARY W/COST")
+f.Intrinsic.Control.EndIf
+
+'display the form
+gui.Form_Main..Show
+
+
+
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Main.End
+
+Program.Sub.cmdSelStart_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdOk_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(Long)
+V.Local.sRet.Declare(String)
+
+
+'select the STARTING employee or group depending on radio button selection
+'browser by employee, return employee ID
+f.Intrinsic.Control.If(v.Global.sSelectType,=,"EMP")
+	V.Local.sSql.Set("select EMPLOYEE, NAME ")
+	F.Intrinsic.String.Concat(V.Local.sSql,"from EMPLOYEE_MSTR ORDER BY EMPLOYEE",V.Local.sSql)
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Intrinsic.String.Split("EMPLOYEE*!*NAME","*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split("800*!*1800","*!*",V.Local.iWidths)
+	F.Intrinsic.UI.Browser("Select Ending Employee",conx,V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+	F.ODBC.Connection!conx.Close
+	
+	F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+		F.Intrinsic.UI.Msgbox("No EMPLOYEE was selected")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		gui.Form_Main.txtEmpStart.Text(V.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Global.sSelectType,=,"GRP")
+'browser by balancing group, return group ID
+	V.Local.sSql.Set("SELECT BAL_GROUP, DESCR ")
+	F.Intrinsic.String.Concat(V.Local.sSql,"from BALANCING_GROUP ORDER BY BAL_GROUP",V.Local.sSql)
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Intrinsic.String.Split("GROUP*!*DESCRIPTION","*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split("800*!*1800","*!*",V.Local.iWidths)
+	F.Intrinsic.UI.Browser("Select Starting Group",conx,V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+	F.ODBC.Connection!conx.Close
+	
+	F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+		F.Intrinsic.UI.Msgbox("No EMPLOYEE was selected")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		gui.Form_Main.txtEmpStart.Text(V.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Select Employee or Group first")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf
+
+V.Global.sStartRange.Set(V.Screen.Form_Main!txtEmpStart.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdOk_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdSelStart_Click.End
+
+Program.Sub.cmdSelStop_Click.Start
+F.Intrinsic.Control.SetErrorHandler("cmdSelStart_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+V.Local.sSql.Declare(String)
+V.Local.sTitles.Declare(String)
+V.Local.iWidths.Declare(Long)
+V.Local.sRet.Declare(String)
+
+'select the ENDING employee or group depending on radio button selection
+
+'browser by employee, return employee number
+f.Intrinsic.Control.If(v.Global.sSelectType,=,"EMP")
+	V.Local.sSql.Set("select EMPLOYEE, NAME ")
+	F.Intrinsic.String.Concat(V.Local.sSql,"from EMPLOYEE_MSTR ORDER BY EMPLOYEE",V.Local.sSql)
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Intrinsic.String.Split("EMPLOYEE*!*NAME","*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split("800*!*1800","*!*",V.Local.iWidths)
+	F.Intrinsic.UI.Browser("Select Starting Employee",conx,V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+	F.ODBC.Connection!conx.Close
+	
+	F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+		F.Intrinsic.UI.Msgbox("No EMPLOYEE was selected")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		GUI.Form_Main.txtEmpEnd.Text(V.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ElseIf(V.Global.sSelectType,=,"GRP")
+'browser by balancing group, return group ID
+	V.Local.sSql.Set("SELECT BAL_GROUP, DESCR ")
+	F.Intrinsic.String.Concat(V.Local.sSql,"from BALANCING_GROUP ORDER BY BAL_GROUP",V.Local.sSql)
+	F.ODBC.Connection!conx.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+	F.Intrinsic.String.Split("GROUP*!*DESCRIPTION","*!*",V.Local.sTitles)
+	F.Intrinsic.String.Split("800*!*1800","*!*",V.Local.iWidths)
+	F.Intrinsic.UI.Browser("Select Starting Group",conx,V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+	F.ODBC.Connection!conx.Close
+	
+	F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+		F.Intrinsic.UI.Msgbox("No GROUP was selected")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		GUI.Form_Main.txtEmpEnd.Text(V.Local.sRet(0))
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Else
+	F.Intrinsic.UI.Msgbox("Select EMPLOYEE or GROUP first")
+	f.Intrinsic.Control.ExitSub
+f.Intrinsic.Control.EndIf	
+
+V.Global.sEndRange.Set(V.Screen.Form_Main!txtEmpEnd.Text)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("cmdSelStart_Click_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdSelStop_Click.End
+
+Program.Sub.cmdCancel_Click.Start
+f.Intrinsic.Control.End
+
+Program.Sub.cmdCancel_Click.End
+
+Program.Sub.cmdOk_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sStartDate.Declare(String)
+v.Local.sEndDate.Declare(String)
+
+'check to make sure a paytype has been selected / ignore this if the user is not in the JDETAILS security group.
+f.Intrinsic.Control.If(v.Global.bSecurity,=,True)
+	f.Intrinsic.Control.If(v.Global.sHourly,=,"")
+		f.Intrinsic.Control.AndIf(v.Global.sSalary,=,"")
+			f.Intrinsic.UI.Msgbox("You have not selected a pay type")
+			f.Intrinsic.Control.ExitSub
+	f.Intrinsic.Control.EndIf
+	
+	'setting the pay type they want included in the report
+	F.Intrinsic.String.Build("IN ('{0}','{1}')",V.Global.sSalary,V.Global.sHourly,V.Global.sPayType)
+f.Intrinsic.Control.EndIf
+
+
+'building the date range
+	v.Local.sStartDate.Set(v.Screen.Form_Main!dtpStart.Value)
+	v.Local.sEndDate.Set(v.Screen.Form_Main!dtpEndDate.Value)
+	f.Intrinsic.String.Format(v.Local.sStartDate,"YYYY-MM-DD",V.Global.sStartDate)
+	F.Intrinsic.String.Format(V.Local.sEndDate,"YYYY-MM-DD",V.Global.sEndDate)
+
+'setting the report type they want output (DETAIL / SUMMARY)
+	v.Global.sReportType.Set(v.Screen.Form_Main!ddlOutput.Text)
+
+'setting the filter if only looking for a specific pay category
+v.Global.sEarnCode.Set(v.Screen.Form_Main!ddlEarnCode.Text)
+
+f.Intrinsic.Control.CallSub(select_byemployee)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.cmdOk_Click.End
+
+Program.Sub.optEmp_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'sets the name of the range criteria (employee or balancing group) on the form
+gui.Form_Main.frRange.Caption("Select by Employee")
+v.Global.sSelectType.Set("EMP")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.optEmp_Click.End
+
+Program.Sub.optGrp_Click.Start
+F.Intrinsic.Control.SetErrorHandler("optEmp_Click_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'sets the name of the range criteria (employee or balancing group) on the form
+gui.Form_Main.frRange.Caption("Select by Balancing Group")
+V.Global.sSelectType.Set("GRP")
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("optEmp_Click_Err")
+
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.optGrp_Click.End
+
+Program.Sub.chkSalary_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'are we including salary paid employees or not?
+f.Intrinsic.Control.If(v.Screen.Form_Main!chkSalary.Value,=,1)
+	V.Global.sSalary.Set("S")
+f.Intrinsic.Control.Else
+	v.Global.sSalary.Set("")
+f.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.chkSalary_Click.End
+
+Program.Sub.chkHourly_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Preflight_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+'are we including hourly paid employees or not?
+f.Intrinsic.Control.If(v.Screen.Form_Main!chkHourly.Value,=,1)
+	v.Global.sHourly.Set("H")
+f.Intrinsic.Control.Else
+	v.Global.sHourly.Set("")
+f.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Preflight_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.chkHourly_Click.End
+
+Program.Sub.ddlOutput_Click.Start
+Program.Sub.ddlOutput_Click.End
+
+Program.Sub.ddlOutput_Change.Start
+Program.Sub.ddlOutput_Change.End
+
+Program.Sub.Form_UnLoad.Start
+f.Intrinsic.Control.End
+
+Program.Sub.Form_UnLoad.End
+
+Program.Sub.select_byEmployee.Start
+F.Intrinsic.Control.SetErrorHandler("select_byEmployee_Err")
+F.Intrinsic.Control.ClearErrors
+
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sSql2.Declare(String)
+v.Local.iCount.Declare(Long)
+v.Local.sEmployee.Declare(String)
+v.Local.dDate.Declare(String)
+V.Local.sDate.Declare(String)
+V.Local.sEarn.Declare(String)
+v.Local.sDescr.Declare(String)
+v.Local.sReport.Declare(String)
+V.Local.sJob.Declare(String)
+v.Local.sEarnCode.Declare(String)
+v.Local.sRet.Declare(String)
+v.Local.sFilter.Declare(String)
+
+'determine which report they are wanting to print and set the query based on the selection criteria from the form
+f.Intrinsic.Control.If(v.Global.sSelectType,=,"EMP")
+	f.Intrinsic.String.Build("SELECT V_EMPLOYEE_MSTR.SHIFT, V_EMPLOYEE_MSTR.DEPT_EMPLOYEE, V_EMPLOYEE_MSTR.PR_BALANCE_GROUP, V_JOB_DETAIL.JOB, V_JOB_DETAIL.SUFFIX, V_JOB_DETAIL.SEQ, V_JOB_DETAIL.HOURS_WORKED, V_JOB_DETAIL.RATE_EMPLOYEE, V_JOB_DETAIL.RATE_TYPE, V_JOB_DETAIL.FLAG_INDIRECT, V_EMPLOYEE_MSTR.EMPLOYEE, V_EMPLOYEE_MSTR.NAME, V_JOB_DETAIL.START_TIME, V_JOB_DETAIL.END_TIME, V_JOB_DETAIL.MACHINE, V_JOB_DETAIL.LMO, V_JOB_DETAIL.DATE_SEQUENCE, V_JOB_OPERATIONS.DESCRIPTION, V_JOB_DETAIL.EDITED_WO_DTL, V_JOB_DETAIL.EARNINGS_CODE AS EARNCODE, V_EMPLOYEE_MSTR.PAY_TYPE FROM V_JOB_DETAIL LEFT JOIN V_EMPLOYEE_MSTR ON V_JOB_DETAIL.EMPL = V_EMPLOYEE_MSTR.EMPLOYEE LEFT JOIN V_JOB_OPERATIONS ON V_JOB_DETAIL.SEQ = V_JOB_OPERATIONS.SEQ AND V_JOB_DETAIL.SUFFIX = V_JOB_OPERATIONS.SUFFIX AND V_JOB_DETAIL.JOB = V_JOB_OPERATIONS.JOB WHERE V_JOB_DETAIL.LMO = 'L' AND  V_JOB_DETAIL.EDITED_WO_DTL <> 'R' AND V_JOB_DETAIL.DATE_SEQUENCE >= '{0}' AND V_JOB_DETAIL.DATE_SEQUENCE <= '{1}' AND V_EMPLOYEE_MSTR.EMPLOYEE >= '{2}' AND V_EMPLOYEE_MSTR.EMPLOYEE <='{3}'  AND V_EMPLOYEE_MSTR.PAY_TYPE {4} ORDER BY V_EMPLOYEE_MSTR.PR_BALANCE_GROUP, V_EMPLOYEE_MSTR.EMPLOYEE, V_JOB_OPERATIONS.DESCRIPTION, V_JOB_DETAIL.DATE_SEQUENCE, V_JOB_DETAIL.START_TIME",v.Global.sStartDate,v.Global.sEndDate,V.Global.sStartRange,V.Global.sEndRange,v.Global.sPayType,v.Local.sSql)
+F.Intrinsic.Control.ElseIf(V.Global.sSelectType,=,"GRP")
+	f.Intrinsic.String.Build("SELECT V_EMPLOYEE_MSTR.SHIFT, V_EMPLOYEE_MSTR.DEPT_EMPLOYEE, V_EMPLOYEE_MSTR.PR_BALANCE_GROUP, V_JOB_DETAIL.JOB, V_JOB_DETAIL.SUFFIX, V_JOB_DETAIL.SEQ, V_JOB_DETAIL.HOURS_WORKED, V_JOB_DETAIL.RATE_EMPLOYEE, V_JOB_DETAIL.RATE_TYPE, V_JOB_DETAIL.FLAG_INDIRECT, V_EMPLOYEE_MSTR.EMPLOYEE, V_EMPLOYEE_MSTR.NAME, V_JOB_DETAIL.START_TIME, V_JOB_DETAIL.END_TIME, V_JOB_DETAIL.MACHINE, V_JOB_DETAIL.LMO, V_JOB_DETAIL.DATE_SEQUENCE, V_JOB_OPERATIONS.DESCRIPTION, V_JOB_DETAIL.EDITED_WO_DTL, V_JOB_DETAIL.EARNINGS_CODE AS EARNCODE, V_EMPLOYEE_MSTR.PAY_TYPE FROM V_JOB_DETAIL LEFT JOIN V_EMPLOYEE_MSTR ON V_JOB_DETAIL.EMPL = V_EMPLOYEE_MSTR.EMPLOYEE LEFT JOIN V_JOB_OPERATIONS ON V_JOB_DETAIL.SEQ = V_JOB_OPERATIONS.SEQ AND V_JOB_DETAIL.SUFFIX = V_JOB_OPERATIONS.SUFFIX AND V_JOB_DETAIL.JOB = V_JOB_OPERATIONS.JOB WHERE V_JOB_DETAIL.LMO = 'L' AND  V_JOB_DETAIL.EDITED_WO_DTL <> 'R' AND V_JOB_DETAIL.DATE_SEQUENCE >= '{0}' AND V_JOB_DETAIL.DATE_SEQUENCE <= '{1}' AND V_EMPLOYEE_MSTR.PR_BALANCE_GROUP >= '{2}' AND V_EMPLOYEE_MSTR.PR_BALANCE_GROUP <='{3}'  AND V_EMPLOYEE_MSTR.PAY_TYPE {4} ORDER BY V_EMPLOYEE_MSTR.PR_BALANCE_GROUP, V_EMPLOYEE_MSTR.EMPLOYEE, V_JOB_OPERATIONS.DESCRIPTION, V_JOB_DETAIL.DATE_SEQUENCE, V_JOB_DETAIL.START_TIME",v.Global.sStartDate,v.Global.sEndDate,V.Global.sStartRange,V.Global.sEndRange,v.Global.sPayType,v.Local.sSql)
+F.Intrinsic.Control.EndIf
+
+'determine which report to print
+f.Intrinsic.Control.SelectCase(v.Global.sReportType)
+	f.Intrinsic.Control.Case("DETAIL")
+		v.Local.sReport.Set("GAB_4408_Labor_emp_dtl.rpt")
+	F.Intrinsic.Control.Case("SUMMARY")
+		v.Local.sReport.Set("GAB_4408_Labor_emp_sum.rpt")
+F.Intrinsic.Control.EndSelect
+
+'set the report ID
+f.Global.BI.GetIDFromName(v.Local.sReport,v.Global.iRPTID)
+
+'open connectoin and start building the data tables and views
+f.ODBC.Connection!conx.OpenConnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+f.data.datatable.createfromSQL("DtLabor","conx",v.Local.sSql)
+
+f.data.datatable.addcolumn("DtLabor","Terminal","String",v.Caller.Terminal)
+
+'add the earnings code description
+f.data.datatable.addcolumn("DtLabor","EarnDesc","String")
+f.data.datatable.addcolumn("DtLabor","RPTID","String")
+f.data.datatable.addcolumn("DtLabor","RecNo","Long")
+
+
+
+
+'Loop through the DataTable to populate the earnings code
+'F.Intrinsic.Control.For(v.Local.iCount, 0, v.DataTable.DtLabor.RowCount--, 1)
+'	'get the employee and the date and the JOB
+'	v.Local.sEmployee.Set(v.datatable.DtLabor(v.Local.iCount).Employee!FieldVal)
+'	v.Local.sDate.Set(v.datatable.DtLabor(v.Local.iCount).DATE_SEQUENCE!FieldVal)
+'	v.Local.sJob.Set(v.datatable.DtLabor(v.Local.iCount).JOB!FieldVal)
+''	f.Intrinsic.Control.If(v.Local.sJob,LIKE,"ZIND%")
+'		F.Intrinsic.String.Format(V.Local.sDate,"YYYY-MM-DD",V.Local.sDate)
+'		f.Intrinsic.String.Build("Select earnings_code from v_time_attendance where EMPLOYEE = '{0}' AND DATE_OUT = '{1}' and earnings_code <> ''",V.Local.sEmployee,V.Local.sDate,V.Local.sSql)
+'		F.ODBC.Connection!conx.OpenLocalRecordsetRO("EARN",V.Local.sSql)
+'		F.Intrinsic.Control.If(V.ODBC.conx!EARN.EOF,=,False)
+'			'set the earnings code
+'			f.data.datatable.setvalue("DtLabor", v.Local.iCount, "EarnCode", v.ODBC.conx!earn.FieldVal!EARNINGS_CODE)
+'		f.Intrinsic.Control.Else
+'			f.data.datatable.setvalue("DtLabor", v.Local.iCount, "EarnCode", "01")
+'		F.Intrinsic.Control.EndIf
+'		F.ODBC.conx!EARN.Close
+'f.Intrinsic.Control.Next(v.Local.iCount)
+
+
+
+F.Intrinsic.Control.For(v.Local.iCount, 0, v.DataTable.DtLabor.RowCount--, 1)
+	v.Local.sEarnCode.Set(v.datatable.DtLabor(v.Local.iCount).EarnCode!FieldVal)
+	'direct labor jobs don't store an earnings code in job_detail, by default this would be '01 - Regular'.
+	F.Intrinsic.Control.If(V.Local.sEarnCode,<,"0")
+		f.data.datatable.setvalue("DtLabor",v.Local.iCount,"EarnCode","01")
+		v.Local.sEarnCode.Set("01")
+	f.Intrinsic.Control.EndIf
+	F.Intrinsic.String.LPad(V.Local.sEarnCode,"0",4,V.Local.sEarnCode)		
+	F.Intrinsic.String.Build("select text1 AS TYPE from op_header where ID = '400889' AND SEQUENCE = '{0}'",V.Local.sEarnCode,V.Local.sSql2)
+	F.ODBC.Connection!conx.ExecuteAndReturn(V.Local.sSql2,V.Local.sRet)
+	f.Intrinsic.String.Trim(v.Local.sRet,v.Local.sDescr)
+	f.Intrinsic.String.UCase(v.Local.sDescr,v.Local.sDescr)
+	f.data.datatable.setvalue("DtLabor",v.Local.iCount,"EarnDesc",v.Local.sDescr)	
+	v.Local.sRet.Set('')
+	f.data.datatable.setvalue("DtLabor",v.Local.iCount,"RPTID",V.Global.iRPTID)
+	f.data.datatable.setvalue("DtLabor",v.Local.iCount,"RecNo",v.Local.iCount)
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+
+
+'checking to see if they picked a specific earning code or not
+f.Intrinsic.Control.If(V.Global.sEarnCode,<>,"")
+	'create a view so we can filter and write the report data based on a single earnings code
+	f.data.Dataview.Create("DtLabor","DtDvLabor")
+	
+	'set the filter based on the earnings code selected on the form, use the left 2 characters.
+	f.Intrinsic.String.Left(v.Global.sEarnCode,2,v.Local.sEarnCode)
+	f.Intrinsic.String.Build("EarnCode = '{0}'",v.Local.sEarnCode,v.Local.sFilter)
+	f.data.dataview.setFilter("DtLabor","DtDvLabor",v.Local.sFilter)
+	
+	'copy the filtered view to a new table to write to the database
+	f.data.dataview.ToDataTable("DtLabor","DtDvLabor","DtLaborSave")
+	
+	'delete records from the report table per this termainal ID / ReportID
+	f.Intrinsic.String.Build("delete from GAB_4408_LABOR_Rpt where TERMINAL = '{0}'",V.Caller.Terminal,V.Local.sSql)
+	f.ODBC.Connection!conx.Execute(v.Local.sSql)
+	
+	'write the datatable to the db table
+	f.data.datatable.savetoDB("DtLaborSave","conx","GAB_4408_LABOR_Rpt","RECNO*!*TERMINAL*!*RPTID")
+F.Intrinsic.Control.Else
+	'delete records from the report table per this termainal ID / ReportID
+	f.Intrinsic.String.Build("delete from GAB_4408_LABOR_Rpt where TERMINAL = '{0}'",V.Caller.Terminal,V.Local.sSql)
+	f.ODBC.Connection!conx.Execute(v.Local.sSql)
+	'write the datatable to the db table
+	f.data.datatable.savetoDB("DtLabor","conx","GAB_4408_LABOR_Rpt","RECNO*!*TERMINAL*!*RPTID")	
+F.Intrinsic.Control.EndIf
+f.ODBC.Connection!conx.Close
+
+F.Intrinsic.Control.CallSub(PrintReport)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("select_byEmployee_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2c",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.select_byEmployee.End
+
+Program.Sub.PrintReport.Start
+F.Intrinsic.Control.SetErrorHandler("PrintReport_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sParamNames.Declare(String)
+v.Local.sParamValues.Declare(String)
+
+'set caller parameters for the report
+f.Intrinsic.String.Concat("ReportID","*!*Terminal",v.Local.sParamNames)
+f.Intrinsic.String.Concat(v.Global.iRPTID,"*!*",v.Caller.Terminal,v.Local.sParamValues)
+
+f.Intrinsic.String.Split(v.Local.sParamNames,"*!*",v.Local.sParamNames)
+f.Intrinsic.String.Split(v.Local.sParamValues,"*!*",v.Local.sParamValues)
+
+f.Global.BI.PrintReport(v.Global.iRPTID,0,v.Local.sParamNames,v.Local.sParamValues,"",False)
+
+f.Intrinsic.Control.CallSub(unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("PrintReport_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: GAB_4408_LABOR_REPORTS.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.PrintReport.End
+
+Program.Sub.unload.Start
+f.Intrinsic.Control.End
+
+Program.Sub.unload.End
+
+Program.Sub.Comments.Start
+${$0$}$GAB_LABOR_REPORTS$}$DFINCH$}$10/8/2016 4:29:36 PM$}$False
+${$3$}$0$}$$}$0$}$-1$}$$}$12:00:00 AM$}$Modified for Summit Aviation (TruAtlantic) 1/27/17
+Program.Sub.Comments.End
